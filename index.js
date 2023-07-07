@@ -11,7 +11,7 @@ const renderposts = async () => {
       <div class="blog">
         <h2 class="blog-title">${blog.title}</h2>
         <p class="blog-body">${blog.body}</p>
-      
+        <button class="delete" data-blog-id="${blog.id}">Delete</button>
       </div>   
     `;
   });
@@ -99,6 +99,27 @@ const renderposts = async () => {
         }),
       });
     });
+  }
+
+  
+  function handleDeleteButtonClicks() {
+    const deleteButtons = document.querySelectorAll(".delete");
+
+    deleteButtons.forEach((deleteButton) => {
+      deleteButton.addEventListener("click", () => {
+        const blogId = deleteButton.dataset.blogId;
+        deleteBlogPost(blogId);
+      });
+    });
+  }
+  handleDeleteButtonClicks()
+  function deleteBlogPost(blogId) {
+    const deleteUrl = `${url}/${blogId}`;
+
+    fetch(deleteUrl, {
+      method: "DELETE",
+    })
+      
   }
 };
 window.addEventListener("DOMContentLoaded", renderposts);
