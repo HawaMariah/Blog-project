@@ -4,16 +4,20 @@ const renderposts = async () => {
   const url = "http://localhost:3000/Blogs";
   const res = await fetch(url);
   const blogs = await res.json();
-  console.log(blogs);
+  
   let template = "";
   blogs.forEach((blog) => {
     template += `
-      <div class="blog">
-        <h2 class="blog-title">${blog.title}</h2>
+    <div class="blog">
+        <h2 class="blog-title">
+        
+          <img src="${blog.image}" alt="Blog Image"> 
+          ${blog.title}
+        </h2>
         <p class="blog-body">${blog.body}</p>
-        <p class="author">Author : ${blog.author}</p>
+        <p class="author">Author: ${blog.author}</p>
         <button class="delete" data-blog-id="${blog.id}">Delete</button>
-      </div>   
+      </div>    
     `;
   });
 
