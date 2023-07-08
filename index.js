@@ -60,7 +60,7 @@ const renderposts = async () => {
   function goToHomePage() {
     const homePage = document.querySelector("#home");
     homePage.addEventListener("click", () => {
-      window.location.href = "j.html";
+      window.location.href = "index.html";
     });
   }
   goToHomePage();
@@ -140,5 +140,29 @@ const renderposts = async () => {
       method: "DELETE",
     });
   }
+
+  function comingSoonAlert() {
+    Swal.fire({
+      title: "Coming Soon",
+      text: "Stay tuned for more updates!",
+      icon: "info",
+      confirmButtonText: "OK",
+    });
+  }
+
+  function subscribeAlert() {
+    Swal.fire({
+      title: "Subscribe",
+      text:"You have successfully subscribed!",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+  }
+
+  const moreLink = document.querySelector("#more");
+  moreLink.addEventListener("click", comingSoonAlert);
+
+  const subscribeBtn = document.getElementById("subscribeBtn");
+  subscribeBtn.addEventListener("click", subscribeAlert);
 };
 window.addEventListener("DOMContentLoaded", renderposts);
