@@ -5,7 +5,7 @@
 }
 body{
 margin: 0;
-padding: 5px;
+padding: 0;
 color: #FFFFFF;
 background-color: rgb(11, 11, 14);
 
@@ -168,4 +168,27 @@ padding-left: 7cm;
 #submit:hover{
   background-color: grey;
  
+}
+
+footer {
+  background-color: #1f1e1e;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
