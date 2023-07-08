@@ -25,6 +25,8 @@ const renderposts = async () => {
   });
 
   container.innerHTML = template;
+
+  //handle click events on blog titles
   handleBlogTitleClicks();
   function handleBlogTitleClicks() {
     const blogTitles = document.querySelectorAll(".blog-title");
@@ -63,6 +65,8 @@ const renderposts = async () => {
       window.location.href = "index.html";
     });
   }
+
+  //navigate to homepage
   goToHomePage();
   function handleBlogClick() {
     const section = document.querySelector(".section");
@@ -97,6 +101,7 @@ const renderposts = async () => {
   const blog = document.querySelector("#blog");
   blog.addEventListener("click", handleBlogClick);
 
+  //handle form submission
   function handleSubmit() {
     const submitBtn = document.querySelector("#submit");
     const form = document.querySelector("form");
@@ -122,6 +127,7 @@ const renderposts = async () => {
     });
   }
 
+  //handles delete button
   function handleDeleteButtonClicks() {
     const deleteButtons = document.querySelectorAll(".delete");
 
@@ -132,6 +138,7 @@ const renderposts = async () => {
       });
     });
   }
+  //deletes blog post
   handleDeleteButtonClicks();
   function deleteBlogPost(blogId) {
     const deleteUrl = `${url}/${blogId}`;
@@ -140,7 +147,7 @@ const renderposts = async () => {
       method: "DELETE",
     });
   }
-
+ // Shows "Coming Soon" alert on "More" navigation link click
   function comingSoonAlert() {
     Swal.fire({
       title: "Coming Soon",
@@ -150,6 +157,7 @@ const renderposts = async () => {
     });
   }
 
+    // Shows "Subscribe" success alert on button click
   function subscribeAlert() {
     Swal.fire({
       title: "Subscribe",
