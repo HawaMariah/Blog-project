@@ -4,19 +4,22 @@ const renderposts = async () => {
   const url = "http://localhost:3000/Blogs";
   const res = await fetch(url);
   const blogs = await res.json();
-  
+
   let template = "";
   blogs.forEach((blog) => {
     template += `
     <div class="blog">
+    
         <h2 class="blog-title">
         
-          <img src="${blog.image}" alt="Blog Image"> 
-          ${blog.title}
+          <img class="images" src="${blog.image}" alt="Blog Image">${blog.title} </img>
+        
         </h2>
-        <p class="blog-body">${blog.body}</p>
-        <p class="author">Author: ${blog.author}</p>
+     
         <button class="delete" data-blog-id="${blog.id}">Delete</button>
+        <p class="blog-body">${blog.body}</p>
+        <p class="author">  Author:${blog.author} </p>
+       
       </div>    
     `;
   });
@@ -30,23 +33,23 @@ const renderposts = async () => {
       const blogBody = title.nextElementSibling;
 
       blogBody.style.display = "none";
-      const blogAuthor = blogBody.nextElementSibling
-      blogAuthor.style.display = "none"
-      const deletebtn =blogAuthor.nextElementSibling
-      deletebtn.style.display = "none"
+      const blogAuthor = blogBody.nextElementSibling;
+      blogAuthor.style.display = "none";
+      const deletebtn = blogAuthor.nextElementSibling;
+      deletebtn.style.display = "none";
 
       title.addEventListener("click", () => {
         const content = document.querySelector(".content");
 
         content.innerHTML = "";
-      
+
         content.appendChild(title);
         content.appendChild(blogBody);
-        content.appendChild(blogAuthor)
-        content.appendChild(deletebtn)
+        content.appendChild(blogAuthor);
+        content.appendChild(deletebtn);
         blogBody.style.display = "block";
-        blogAuthor.style.display = "block"
-        deletebtn.style.display ="block"
+        blogAuthor.style.display = "block";
+        deletebtn.style.display = "block";
         blogTitles.forEach((t) => {
           t.style.display = t === title ? "block" : "none";
         });
@@ -77,7 +80,11 @@ const renderposts = async () => {
           <label for="body">Blog Body:</label>
           <textarea id="blogBody" name="body" required></textarea>
           <br>
-         <button type="submit" id="submit">submit</button>
+          <label for="image">Image:</label>
+        <input  id="image" name="image" accept="image/*">
+         <br>
+
+          <button type="submit" id="submit">submit</button>
         </form>
       </div>
     `;
@@ -100,6 +107,7 @@ const renderposts = async () => {
       const title = form.elements.title.value;
       const author = form.elements.author.value;
       const body = form.elements.body.value;
+      const image = form.elements.image.value;
 
       fetch(url, {
         method: "POST",
@@ -108,6 +116,7 @@ const renderposts = async () => {
           title,
           author,
           body,
+          image,
         }),
       });
     });
