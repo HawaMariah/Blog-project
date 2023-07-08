@@ -11,6 +11,7 @@ const renderposts = async () => {
       <div class="blog">
         <h2 class="blog-title">${blog.title}</h2>
         <p class="blog-body">${blog.body}</p>
+        <p class="author">Author : ${blog.author}</p>
         <button class="delete" data-blog-id="${blog.id}">Delete</button>
       </div>   
     `;
@@ -25,16 +26,23 @@ const renderposts = async () => {
       const blogBody = title.nextElementSibling;
 
       blogBody.style.display = "none";
+      const blogAuthor = blogBody.nextElementSibling
+      blogAuthor.style.display = "none"
+      const deletebtn =blogAuthor.nextElementSibling
+      deletebtn.style.display = "none"
 
       title.addEventListener("click", () => {
         const content = document.querySelector(".content");
-      
+
         content.innerHTML = "";
-        
+      
         content.appendChild(title);
         content.appendChild(blogBody);
+        content.appendChild(blogAuthor)
+        content.appendChild(deletebtn)
         blogBody.style.display = "block";
-
+        blogAuthor.style.display = "block"
+        deletebtn.style.display ="block"
         blogTitles.forEach((t) => {
           t.style.display = t === title ? "block" : "none";
         });
@@ -101,7 +109,6 @@ const renderposts = async () => {
     });
   }
 
-  
   function handleDeleteButtonClicks() {
     const deleteButtons = document.querySelectorAll(".delete");
 
@@ -112,14 +119,13 @@ const renderposts = async () => {
       });
     });
   }
-  handleDeleteButtonClicks()
+  handleDeleteButtonClicks();
   function deleteBlogPost(blogId) {
     const deleteUrl = `${url}/${blogId}`;
 
     fetch(deleteUrl, {
       method: "DELETE",
-    })
-      
+    });
   }
 };
 window.addEventListener("DOMContentLoaded", renderposts);
