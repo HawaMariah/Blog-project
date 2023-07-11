@@ -1,5 +1,5 @@
 # Blog-project
-## To view the web link you need to have the json server running
+
 # Blog Application
 This is a blog application that allows users to create and manage blog posts. It provides functionality for creating new blog posts, displaying existing blog posts, deleting blog posts, and viewing individual blog posts in detail.
 
