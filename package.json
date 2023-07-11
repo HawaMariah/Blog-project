@@ -1,0 +1,22 @@
+{
+  "name": "tea-blog",
+  "version": "1.0.0",
+  "description": "Fake REST API",
+  "main": "index.js",
+  "scripts": {
+    "json:server": "json-server --watch db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HawaMariah/Blog-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HawaMariah/Blog-project/issues"
+  },
+  "homepage": "https://github.com/HawaMariah/Blog-project#readme",
+  "dependencies": {
+    "json-server": "^0.17.1"
+  }
+}

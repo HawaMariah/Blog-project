@@ -1,7 +1,7 @@
 const container = document.querySelector(".container");
 
 const renderposts = async () => {
-  const url = "http://localhost:3000/Blogs";
+  const url = "https://blog-project-bti4.onrender.com";
   const res = await fetch(url);
   const blogs = await res.json();
 
@@ -147,7 +147,7 @@ const renderposts = async () => {
       method: "DELETE",
     });
   }
- // Shows "Coming Soon" alert on "More" navigation link click
+  // Shows "Coming Soon" alert on "More" navigation link click
   function comingSoonAlert() {
     Swal.fire({
       title: "Coming Soon",
@@ -157,11 +157,11 @@ const renderposts = async () => {
     });
   }
 
-    // Shows "Subscribe" success alert on button click
+  // Shows "Subscribe" success alert on button click
   function subscribeAlert() {
     Swal.fire({
       title: "Subscribe",
-      text:"You have successfully subscribed!",
+      text: "You have successfully subscribed!",
       icon: "success",
       confirmButtonText: "OK",
     });
