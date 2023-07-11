@@ -102,57 +102,56 @@ const renderposts = async () => {
   blog.addEventListener("click", handleBlogClick);
 
   // handle form submission
-function handleSubmit() {
-  const submitBtn = document.querySelector("#submit");
-  const form = document.querySelector("form");
+  function handleSubmit() {
+    const submitBtn = document.querySelector("#submit");
+    const form = document.querySelector("form");
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-    const title = form.elements.title.value;
-    const author = form.elements.author.value;
-    const body = form.elements.body.value;
-    const image = form.elements.image.value;
+      const title = form.elements.title.value;
+      const author = form.elements.author.value;
+      const body = form.elements.body.value;
+      const image = form.elements.image.value;
 
-    fetch(url, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        title,
-        author,
-        body,
-        image,
-      }),
+      fetch(url, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          title,
+          author,
+          body,
+          image,
+        }),
+      }).then(() => {
+        window.location.href = "index.html"; // redirect to homepage after submission
+      });
+    });
+  }
+
+  // handles delete button
+  function handleDeleteButtonClicks() {
+    const deleteButtons = document.querySelectorAll(".delete");
+
+    deleteButtons.forEach((deleteButton) => {
+      deleteButton.addEventListener("click", () => {
+        const blogId = deleteButton.dataset.blogId;
+        deleteBlogPost(blogId);
+      });
+    });
+  }
+
+  // deletes blog post
+  handleDeleteButtonClicks();
+  function deleteBlogPost(blogId) {
+    const deleteUrl = `${url}/${blogId}`;
+
+    fetch(deleteUrl, {
+      method: "DELETE",
     }).then(() => {
-      window.location.href = "index.html"; // redirect to homepage after submission
+      window.location.href = "index.html"; // redirect to homepage after deletion
     });
-  });
-}
-
-// handles delete button
-function handleDeleteButtonClicks() {
-  const deleteButtons = document.querySelectorAll(".delete");
-
-  deleteButtons.forEach((deleteButton) => {
-    deleteButton.addEventListener("click", () => {
-      const blogId = deleteButton.dataset.blogId;
-      deleteBlogPost(blogId);
-    });
-  });
-}
-
-// deletes blog post
-handleDeleteButtonClicks();
-function deleteBlogPost(blogId) {
-  const deleteUrl = `${url}/${blogId}`;
-
-  fetch(deleteUrl, {
-    method: "DELETE",
-  }).then(() => {
-    window.location.href = "index.html"; // redirect to homepage after deletion
-  });
-}
-
+  }
 
   // Shows "Coming Soon" alert on "More" navigation link click
   function comingSoonAlert() {
