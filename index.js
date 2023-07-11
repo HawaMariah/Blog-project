@@ -1,7 +1,7 @@
 const container = document.querySelector(".container");
 
 const renderposts = async () => {
-  const url = "https://blog-project-bti4.onrender.com";
+  const url = "https://blog-project-bti4.onrender.com/Blogs";
   const res = await fetch(url);
   const blogs = await res.json();
 
