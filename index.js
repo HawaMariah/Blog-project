@@ -124,7 +124,7 @@ const renderposts = async () => {
           image,
         }),
       }).then(() => {
-        window.location.href = "index.html"; // redirect to homepage after submission
+        window.location.replace("index.html"); // redirect to homepage after submission
       });
     });
   }
@@ -149,7 +149,7 @@ const renderposts = async () => {
     fetch(deleteUrl, {
       method: "DELETE",
     }).then(() => {
-      window.location.href = "index.html"; // redirect to homepage after deletion
+      window.location.replace("index.html"); // redirect to homepage after deletion
     });
   }
 
