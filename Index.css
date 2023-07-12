@@ -134,6 +134,7 @@ padding-left: 7cm;
 .blog{
   margin-top: 1cm;
   padding: 20px;
+  
 
 }
 #blogTitle{
@@ -141,13 +142,14 @@ padding-left: 7cm;
   border: none;
   border-radius: 30px;
   font-size: 30px;
-  
+ 
 }
 #authorName{
   padding: 15px 30px;
   border: none;
   border-radius: 30px;
   font-size: 30px;
+  
 }
 #blogBody{
   padding: 7cm 15cm;
@@ -196,4 +198,11 @@ footer a:hover {
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+.blog-title{
+  background-color: #1e1e1e;
+  width: 470px;
+  height: 450px;
+  border-radius: 10px;
+  text-align: center;
 }
