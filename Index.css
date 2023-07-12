@@ -200,7 +200,7 @@ footer a:hover {
   grid-template-columns: repeat(3, 1fr);
 }
 .blog-title{
-  background-color: #1e1e1e;
+  
   width: 470px;
   height: 450px;
   border-radius: 10px;
